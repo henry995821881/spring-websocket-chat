@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kafka-clients>
+
+    <producer>
+        <!-- 唯一ID -->
+        <id>villagePostalStation</id>
+        <!-- 生产的topic -->
+        <topic>uzglocationsend</topic>
+        <!-- kafka的链接url（不是zookeeper） -->
+        <kafka.broker.list>172.25.152.111:9093,172.25.152.112:9093,172.25.152.121:9093</kafka.broker.list>
+        <!-- 处理类，继承AbstractProducerHandler，可以不写，不写的话使用DefaultProducerHandler -->
+		<handler.class>com.tom.ule.vpsUserService.util.UZGProducerHandler</handler.class>
+        <!--  producer是否等待服务器确认回复（acks）的选择，三种选择 -->
+        <!--  0，意味着producer永远不会等待一个来自broker的ack。这个选项提供了最低的延迟，但是持久化的保证是最弱的，当server挂掉的时候会丢失一些数据。-->
+        <!--  1，意味着在leader replica已经接收到数据后，producer会得到一个ack。 -->
+        <!--     这个选项提供了更好的持久性，因为在server确认请求成功处理后，client才会返回。如果刚写到leader上，还没来得及复制leader就挂了，那么消息才可能会丢失。-->
+        <!-- -1，意味着在所有的ISR都接收到数据后，producer才得到一个ack。这个选项提供了最好的持久性，只要还有一个replica存活，那么数据就不会丢失。-->
+        <request.required.acks>1</request.required.acks>
+        <!-- 生产者池预创建数量,可以不用填写,默认数量为cpu核数*2 -->
+        <!-- <producer.pool.size></producer.pool.size> -->
+        <!-- 执行管理类的配置，默认为线程池管理，通常不需要配置 -->
+        <executor.service.class></executor.service.class>
+         
+        <!-- 异步发送会自动调用batch,提高发送效率，同时安全性降低 -->
+        <!--<send.async.enable>true</send.async.enable> -->
+ 
+          <!-- 通常不需要额外配置,代表着Producer请求的其他配置参数，可以查看官网关于Consumer的配置，也可以查看附录 -->
+        <ext.props>
+             
+        <!--     下面三个配置不需要特别去配置，已经封装在class.handler中 -->
+        <!-- <partitioner.class></partitioner.class> -->
+        <!-- <serializer.class></serializer.class> -->
+        <!--    <key.serializer.class></key.serializer.class> -->
+             
+        </ext.props>
+    </producer>
+</kafka-clients>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queue-setting>
+	<queue-sender>
+		<id>QueueRouteDelivery</id>
+		<type>queue</type>
+		<subject>ULE_QUEUE_DELIVERY_NOTICE_VILLAGE</subject>
+		<user></user>
+		<password></password>
+ 		<asyncsend>true</asyncsend>
+		<url>failover://(tcp://172.24.139.116:61618,tcp://172.24.139.117:61618)?randomize=false</url>
+		<connPoolSize>2</connPoolSize>
+		<sendTimeout>5000</sendTimeout>
+	</queue-sender>
+</queue-setting>
