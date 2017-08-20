@@ -53,6 +53,7 @@ public class SystemWebSocketHandler implements WebSocketHandler {
         	if(messageBody.getType().equals("1")){
         		//MessageBody toMessageBody=new MessageBody();
         		//toMessageBody.setFrom(messageBody.getFrom());
+        		messageBody.setContent(java.net.URLDecoder.decode(messageBody.getContent(),"UTF-8"));
         		String fromUser=sessionIdUsers.get(session.getId());
         		messageBody.setFrom(fromUser);
         		String toUser=messageBody.getTo();

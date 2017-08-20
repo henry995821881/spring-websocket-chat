@@ -151,32 +151,16 @@
 <div>  
     <div id="connect-container"> 
     <label>用户名:</label>  
-      <input id="userName"  name="userName"  value="">   
-        <input id="radio1" type="radio" name="group1" onclick="updateUrl('/');">  
-            <label for="radio1">W3C WebSocket</label>  
-        <br>  
-        <input id="radio2" type="radio" name="group1" onclick="updateUrl('/spring-websocket-test/sockjs/echo');">  
-            <label for="radio2">SockJS</label>  
-        <div id="sockJsTransportSelect" style="visibility:hidden;">  
-            <span>SockJS transport:</span>  
-            <select onchange="updateTransport(this.value)">  
-              <option value="all">all</option>  
-              <option value="websocket">websocket</option>  
-              <option value="xhr-polling">xhr-polling</option>  
-              <option value="jsonp-polling">jsonp-polling</option>  
-              <option value="xhr-streaming">xhr-streaming</option>  
-              <option value="iframe-eventsource">iframe-eventsource</option>  
-              <option value="iframe-htmlfile">iframe-htmlfile</option>  
-            </select>  
-        </div>  
+      <input id="userName"  name="userName"  value="test2">   
+        <br>       
         <div>  
             <button id="connect" onclick="connect();">Connect</button>  
             <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>  
         </div>  
         <div>  
             <label>发送给:</label>  
-      	  <input id="touserName"  name="touserName"  value="">   
-            <textarea id="message" style="width: 350px">Here is a message!</textarea>  
+      	  <input id="touserName"  name="touserName"  value="test">   
+            <textarea id="message" style="width: 350px">发送给test的消息</textarea>  
         </div>  
         <div>  
             <button id="echo" onclick="echo();" disabled="disabled">send message</button>  
